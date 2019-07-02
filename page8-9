@@ -42,3 +42,4 @@ print(binary_search(checkList, 1488))  #10
 print(binary_search(checkList, 0))     #None
 #код работает корректно
 #_TESTS_
+
