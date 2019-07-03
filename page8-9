@@ -2,12 +2,7 @@
 low = 0
 high = len(list) - 1
 
-#code mistake
-#mid = (low + high) / 2
-#python does NOT round not even numbers
-#this mistake also appears on page 9
-#how it has to be
-mid = round((low + high) / 2) #Python не округляет числа самостоятельно, для этого воспользуемся функцией round()
+mid = round((low + high) / 2) #Python 2.7 округляет числа автоматически
 guess = list[mid]
 
 if guess < item:
