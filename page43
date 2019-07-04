@@ -1,1 +1,30 @@
+#_page43_
 
+"""
+Стек вызовов - в теории вычислительных систем, LIFO-стек, хранящий информацию для возврата управления из подпрограмм (процедур, функций)
+в программу (или подпрограмму, при вложенных илирекурсивных вызовах) и/или для возврата в программу из обработчика
+прерывания (в том числе при переключении задач в многозадачной среде).
+"""
+
+def greet(name):
+	print "hello, " + name + "!"
+ 	greet2(name)
+ 	print "getting ready to say bye..."
+ 	bye()
+
+
+def greet2(name):
+	print "how are you, " + name + "?"
+
+
+def bye():
+	print "ok bye!"
+
+#Тест
+greet("maggie")
+"""
+hello, maggie!
+how are you, maggie?
+getting ready to say bye...
+ok bye!
+"""
