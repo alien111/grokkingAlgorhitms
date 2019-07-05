@@ -1,1 +1,61 @@
+#_page78_
+
+#Пример простейших хеш-таблиц👌
+
+>>> book = dict()
+
+book это новая хеш-таблица, добавим в нее немного цен:
+
+>>> book[“apple”] = 0.67 An apple costs 67 cents.
+>>> book[“milk”] = 1.49 Milk costs $1.49.
+>>> book[“avocado”] = 1.49
+>>> print book
+
+{‘avocado’: 1.49, ‘apple’: 0.67, ‘milk’: 1.49}
+
+>>> print book[“avocado”] #1.49
+
+
+#Пример телефонной книги
+
+>>> phone_book = dict()
+>>> phone_book = {} #То же самое, что phone_book = dict()
+>>> phone_book[“jenny”] = 8675309
+>>> phone_book[“emergency”] = 911
+>>> print phone_book[“jenny”]    #8675309 -> номер Jenny
+
+#Пример голосования
+
+>>> voted = {}
+>>> value = voted.get(“tom”)
+
+#Код
+
+voted = {}
+def check_voter(name):
+	if voted.get(name):
+		print "kick them out!"
+	else:
+		voted[name] = True
+ 		print "let them vote!"
+
+check_voter("tom")   #let them vote!
+check_voter("mike")  #let them vote!
+check_voter("mike")  #kick them out!
+
+#Код работает корректно
+
+
+#Кэш
+cache = {}
+
+def get_page(url):
+	if cache.get(url):
+		return cache[url] 
+	else:
+ 		data = get_data_from_server(url)
+		cache[url] = data 
+ 		return data
+
+
 
