@@ -1,1 +1,19 @@
+#_page67_
 
+#Merge sort vs quicksort
+
+#Простейшая функция печати элементов массива
+
+def print_items(list):
+	for item in list:
+		print item
+
+#Усложним функцию, чтобы она делала между печатью элементов интервал 1 секунду
+
+from time import sleep
+def print_items2(list):
+	for item in list:
+		sleep(1)
+		print item
+		
+#пример приведен для сравнения времени работы различных алгоритмов и понимания смысла сложности алгоритмов О()
