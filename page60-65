@@ -1,0 +1,31 @@
+#_page60_
+#Quick sort
+
+#Для массивов, длина которых меньше 2, сортировка не требуется
+
+def quicksort(array):
+	if len(array) < 2:
+		return array
+
+#Сортировка сосотоит в том, то мы делим массив вокруг стержневого элемента на те, что больше него и меньше. Затем сортируем уже полученные массивы
+
+def quicksort(array):
+	if len(array) < 2:
+		return array #Базовый случай: массивы длины 0 или 1 уже отсортированы
+ 	else:
+ 		pivot = array[0] #Рекурсивный случай
+ 		less = [i for i in array[1:] if i <= pivot] #Подмассив всех эелементов меньше основного
+		greater = [i for i in array[1:] if i > pivot] #Подмассив всех эелементов больше основного
+ 		return quicksort(less) + [pivot] + quicksort(greater)
+print quicksort([10, 5, 2, 3])
+
+
+#Тесты
+
+print quicksort([10, 5, 2, 3])         #[2, 3, 5, 10]
+print quicksort([])					   #[]
+print quicksort([10])                  #[10]
+print quicksort([0, 0, 0, 0])          #[0, 0, 0, 0]
+print quicksort([1, 0, -1, 583900])    #[-1, 0, 1, 583900]
+
+#Код работает корректно
