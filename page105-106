@@ -1,1 +1,31 @@
+#_page105_
 
+graph = {}
+graph["you"] = ["alice", "bob", "claire"]
+
+"""
+graph[“you”] выдаст массив всех соседей “you”.
+Граф - это просто множество узлов и ребер, поэтому это все, что нужно, чтобы представить граф в Python.
+Граф побольше ->
+"""
+
+graph = {}
+graph["you"] = ["alice", "bob", "claire"]
+graph["bob"] = ["anuj", "peggy"]
+graph["alice"] = ["peggy"]
+graph["claire"] = ["thom", "jonny"]
+graph["anuj"] = []
+graph["peggy"] = []
+graph["thom"] = []
+graph["jonny"] = []
+
+"""
+Pop quiz: Важен ли порядок добавления ключей/значений?
+Можно ли это:
+graph[“claire”] = [“thom”, “jonny”]
+graph[“anuj”] = []
+Заменить этим:
+graph[“anuj”] = []
+graph[“claire”] = [“thom”, “jonny”]
+Можно. В хэш-таблицах нет порядка, поэтому неважно в каком порядке вы добавляете ключи/значения.
+"""
