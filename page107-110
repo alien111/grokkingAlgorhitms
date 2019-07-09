@@ -1,4 +1,7 @@
-"""Поиск в ширину (англ. breadth-first search, BFS) — метод обхода графа и поиска пути в графе. Поиск в ширину является одним из неинформированных алгоритмов поиска
+#_page107_
+
+"""
+Поиск в ширину (англ. breadth-first search, BFS) — метод обхода графа и поиска пути в графе. Поиск в ширину является одним из неинформированных алгоритмов поиска
 Алгоритм:
 
 1. Поместить узел, с которого начинается поиск, в изначально пустую очередь.
@@ -8,4 +11,65 @@
    -В противном случае, в конец очереди добавляются все преемники узла u, которые ещё не развёрнуты и не находятся в очереди.
    
 3. Если очередь пуста, то все узлы связного графа были просмотрены, следовательно, целевой узел недостижим из начального; завершить поиск с результатом «неудача».
-4. Вернуться к п. 2."""
+4. Вернуться к п. 2.
+"""
+
+
+from collections import deque
+search_queue = deque()          #Создем очередь
+search_queue += graph[“you”]    #Добавляем всех соседей в очередь поиска
+
+
+
+while search_queue:								# Пока очередь не пуста…
+	person = search_queue.popleft()				# … достаем первую person из очереди
+	if person_is_seller(person):				# Проверяем, является ли продавцом манго
+		print person + “ is a mango seller!”	# Да, продавец манго
+    	return True
+	else:
+    	search_queue += graph[person]           # Нет, добавляем всех друзей person в очередь поиска
+return False                                    # Если мы попали сюда, значит никто не был продавцом манго
+ 
+ 
+ 
+def person_is_seller(name):
+ 	return name[-1] == 'm'                      # Проверка на окончание имени на 'm'
+	
+	
+#_FINALCODE_
+
+from collections import deque
+
+def person_is_seller(name):
+ 	return name[-1] == 'm'
+
+def search(name):
+	search_queue = deque()
+	search_queue += graph[name]
+	searched = []
+	while search_queue:
+		person = search_queue.popleft()
+ 		if not person in searched:
+ 			if person_is_seller(person):
+ 				print person + " is a mango seller!"
+ 				return True
+			else:
+ 				search_queue += graph[person]
+ 				searched.append(person)
+ 	return False
+
+graph = {}
+graph["you"] = ["alice", "bob", "claire"]
+graph["bob"] = ["anuj", "peggy"]
+graph["alice"] = ["peggy"]
+graph["claire"] = ["thom", "jonny"]
+graph["anuj"] = []
+graph["peggy"] = []
+graph["thom"] = []
+graph["jonny"] = []
+
+search("you")
+
+# ВЫВОД : thom is a mango seller!
+
+#Код работает корректно и служит хорошим примером для поиска в ширину.
