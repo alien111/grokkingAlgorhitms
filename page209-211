@@ -1,1 +1,13 @@
+#_page209_
 
+>>> arr1 = [1, 2, 3, 4, 5]
+>>> arr2 = map(lambda x: 2 * x, arr1)           #удваиваем элементы массива
+[2, 4, 6, 8, 10]
+
+>>> arr1 =                                      # Список URL
+>>> arr2 = map(download_page, arr1)
+
+
+>>> arr1 = [1, 2, 3, 4, 5]
+>>> reduce(lambda x,y: x+y, arr1)
+15
